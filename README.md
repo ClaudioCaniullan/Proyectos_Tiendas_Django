@@ -1,4 +1,4 @@
 # Proyectos Tiendas Django
 
 ### Resumen: 
-primeros prototipos de ecommerce utilizando el framework Django, el objetivo de este repositorio es generar una rama base con la cual poder desplegar luego otros prototipos de ecommerce con caraterísticas diferentes.
+El objetivo de este repositorio es generar prototipos de ecommerce a partir de la rama base main de github la cual contendrá los elementos necesarios para luego desplegar otros tipos de tiendas de ecommerce en diferentes ramas, se pretende que cada rama posea un ecommerce con caracterítticas y propositos diferentes.
