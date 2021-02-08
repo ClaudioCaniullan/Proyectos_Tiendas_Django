@@ -1,6 +1,7 @@
 # Django
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 
 def index(request):
@@ -24,6 +25,10 @@ def login_usuario(request):
 		user = authenticate(username=username, password=password)
 		if user:
 			login(request,user)
+			# una vez logeado enviamos un mensaje desde el servidor
+			messages.success(request, 'Bienvenido {}'.format(user.username))
 			return redirect('index')
+		else:
+			messages.error(request, 'Usuario o contraseña no validos')
 
 	return render(request, 'users/login.html', {})
