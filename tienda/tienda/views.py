@@ -1,8 +1,10 @@
 # Django
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+
+from .forms import RegisterForm
 
 def index(request):
 	return render(request,'index.html', {
@@ -32,3 +34,15 @@ def login_usuario(request):
 			messages.error(request, 'Usuario o contraseña no validos')
 
 	return render(request, 'users/login.html', {})
+
+
+
+def logout_usuario(request):
+	logout(request)
+	messages.success(request, 'Sesión cerrada exitosamente')
+	return redirect('login_usuario')
+
+
+def registro(request):
+	form = RegisterForm()
+	return render(request, 'users/registro.html', {'form':form})
