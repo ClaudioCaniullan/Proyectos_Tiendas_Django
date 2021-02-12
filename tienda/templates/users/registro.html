@@ -32,8 +32,9 @@
 						{{form.password}}
 					</div>
                     -->
-                    {% for field in form %}
+                  {% for field in form %}
                     <div class='form-group'>
+
                     	{{ field.label_tag}}
                     	{{field}}
  
@@ -42,7 +43,7 @@
                     	{% endif %}
 
                     </div>
-                    {% endfor%}
+                   {% endfor%}
 
 					<button type="submit" class="btn btn-primary">Registrar</button>
 				</form>

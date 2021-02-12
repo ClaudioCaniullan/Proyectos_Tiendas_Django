@@ -48,14 +48,10 @@ def registro(request):
 	#generamos un formulario con datos del cliente o vacio
 	form = RegisterForm(request.POST or None)
     
-    # vamos a validar los datos del formulario
+    # vamos a validar los datos del formulario para luego obtenerlos
 	if request.method == 'POST' and form.is_valid():
-		username = form.cleaned_data.get('username')
-		email = form.cleaned_data.get('email')
-		password = form.cleaned_data.get('password')
-        
-        # creamos la instacia con los datos ingresados a formulario
-		user = User.objects.create_user(username, email, password)
+        # obtenemos los datos del formulario y lo validamos en RegisterForm
+		user = form.save()
 		if user:
 			# al crear el usuario se logea y redirige
 			login(request, user)
