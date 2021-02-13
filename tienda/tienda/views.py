@@ -21,6 +21,10 @@ def index(request):
 
 
 def login_usuario(request):
+	# si el usuario esta logeado, evitamos que vaya a login desde el navegador
+	if request.user.is_authenticated:
+		return redirect('index')
+
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
@@ -45,6 +49,10 @@ def logout_usuario(request):
 
 
 def registro(request):
+	# si el usuario esta logeado, evitamos que vaya a registro desde el navegador
+	if request.user.is_authenticated:
+		return redirect('index')
+
 	#generamos un formulario con datos del cliente o vacio
 	form = RegisterForm(request.POST or None)
     
